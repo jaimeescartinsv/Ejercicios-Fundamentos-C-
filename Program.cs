@@ -16,8 +16,9 @@ programa.AñadirEstudiante(estudiante1);
 programa.AñadirEstudiante(estudiante2);
 
 // Asignar calificaciones
-estudiante1.AñadirCalificacion(servidor, 9.5);
-estudiante1.AñadirCalificacion(cliente, 8.0);
+Console.WriteLine("\n--- Asignar Calificaciones ---");
+estudiante1.AñadirCalificacion(servidor, 11.0); // Inválido
+estudiante1.AñadirCalificacion(cliente, -1.0); // Inválido
 estudiante1.AñadirCalificacion(diseño, 9.0);
 
 estudiante2.AñadirCalificacion(servidor, 7.5);

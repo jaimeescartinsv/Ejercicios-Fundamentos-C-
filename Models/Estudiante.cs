@@ -13,7 +13,16 @@ class Estudiante
 
     public void AñadirCalificacion(Asignatura asignatura, double calificacion)
     {
+        // Validar que la calificación esté en el rango 0 a 10
+        if (calificacion < 0 || calificacion > 10)
+        {
+            Console.WriteLine($"Error: La calificación {calificacion:F2} para la asignatura '{asignatura.Nombre}' no es válida. Debe estar entre 0 y 10.");
+            return;
+        }
+
+        // Añadir o actualizar la calificación
         calificaciones[asignatura] = calificacion;
+        Console.WriteLine($"Calificación {calificacion:F2} añadida para la asignatura '{asignatura.Nombre}'.");
     }
 
     public void MostrarCalificaciones()
