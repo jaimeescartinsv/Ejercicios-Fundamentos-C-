@@ -93,5 +93,24 @@ else
     Console.WriteLine($"El estudiante {nombreEliminar} no se encuentra en el sistema.");
 }
 
+// Buscar estudiantes por parte de su nombre
+Console.WriteLine("\n--- Buscar Estudiantes ---");
+string parteDelNombre = "Llorente";
+
+List<Estudiante> resultados = programa.BuscarEstudiantesPorNombre(parteDelNombre);
+
+if (resultados.Count > 0)
+{
+    Console.WriteLine($"Se encontraron {resultados.Count} estudiantes que coinciden con '{parteDelNombre}':");
+    foreach (var estudiante in resultados)
+    {
+        Console.WriteLine($"- {estudiante.Nombre}");
+    }
+}
+else
+{
+    Console.WriteLine($"No se encontraron estudiantes que coincidan con '{parteDelNombre}'.");
+}
+
 // Mostrar lista actualizada de estudiantes
 programa.MostrarEstudiantes();
