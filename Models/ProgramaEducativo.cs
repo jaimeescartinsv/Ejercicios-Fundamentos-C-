@@ -4,11 +4,12 @@ namespace Models;
 class ProgramaEducativo
 {
     private List<Estudiante> estudiantes;
-
+    private List<Asignatura> asignaturas;
 
     public ProgramaEducativo()
     {
         estudiantes = new List<Estudiante>();
+        asignaturas = new List<Asignatura>();
     }
 
     public void AñadirEstudiante(Estudiante estudiante)
@@ -21,7 +22,7 @@ class ProgramaEducativo
         {
             // Añadir la asignatura a la lista global
             estudiantes.Add(estudiante);
-            Console.WriteLine($"El estudiante {estudiante.Nombre} con ha sido añadido.");
+            Console.WriteLine($"El estudiante {estudiante.Nombre} ha sido añadido.");
         }
     }
 
@@ -96,6 +97,29 @@ class ProgramaEducativo
         // Mostrar todas las asignaturas inscritas
         Console.WriteLine("\nAsignaturas inscritas:");
         foreach (var asignatura in estudiante.GetCalificaciones().Keys)
+        {
+            Console.WriteLine($"- {asignatura.Nombre} ({asignatura.Creditos} créditos)");
+        }
+    }
+
+    public void AñadirAsignatura(Asignatura asignatura)
+    {
+        // Comparar nombres ignorando mayúsculas y espacios adicionales
+        if (asignaturas.Exists(a => a.Nombre.Trim().ToLower() == asignatura.Nombre.Trim().ToLower()))
+        {
+            Console.WriteLine($"La asignatura '{asignatura.Nombre}' ya está registrada en el programa.");
+        }
+        else
+        {
+            asignaturas.Add(asignatura);
+            Console.WriteLine($"Asignatura '{asignatura.Nombre}' añadida al programa educativo.");
+        }
+    }
+
+    public void MostrarAsignaturas()
+    {
+        Console.WriteLine("\n--- Lista de Asignaturas ---");
+        foreach (var asignatura in asignaturas)
         {
             Console.WriteLine($"- {asignatura.Nombre} ({asignatura.Creditos} créditos)");
         }

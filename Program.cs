@@ -112,6 +112,22 @@ else
     Console.WriteLine($"No se encontraron estudiantes que coincidan con '{parteDelNombre}'.");
 }
 
+// Añadir nuevas asignaturas al programa educativo
+Console.WriteLine("\n--- Añadir Asignaturas ---");
+
+Asignatura nuevaAsignatura1 = new Asignatura("Matemáticas", 5);
+Asignatura nuevaAsignatura2 = new Asignatura("Diseño", 8);
+Asignatura nuevaAsignatura3 = new Asignatura("Historia", 3);
+Asignatura nuevaAsignatura4 = new Asignatura("Historia", 3);
+
+programa.AñadirAsignatura(nuevaAsignatura1);
+programa.AñadirAsignatura(nuevaAsignatura2);
+programa.AñadirAsignatura(nuevaAsignatura3);
+programa.AñadirAsignatura(nuevaAsignatura4);
+
+// Mostrar lista de asignaturas
+programa.MostrarAsignaturas();
+
 // Generar un reporte detallado para un estudiante
 Console.WriteLine("\n--- Generar Reporte de Estudiante ---");
 string nombreReporte = "Vanessa Llorente";
