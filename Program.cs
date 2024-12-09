@@ -43,3 +43,38 @@ if (estudianteSeleccionado != null)
     double promedio = estudianteSeleccionado.CalcularPromedio();
     Console.WriteLine($"Promedio de {estudianteSeleccionado.Nombre}: {promedio:F2}");
 }
+
+// Modificar calificación de un estudiante
+Console.WriteLine("\n--- Modificar Calificación ---");
+string nombreEstudiante = "Vanessa Llorente";
+string nombreAsignatura = "Cliente";
+double nuevaCalificacion = 9.3;
+
+Estudiante estudianteParaModificar = programa.ObtenerEstudiante(nombreEstudiante);
+if (estudianteParaModificar != null)
+{
+    // Buscar la asignatura
+    Asignatura asignaturaParaModificar = null;
+
+    foreach (var entrada in estudianteParaModificar.GetCalificaciones())
+    {
+        if (entrada.Key.Nombre == nombreAsignatura)
+        {
+            asignaturaParaModificar = entrada.Key;
+            break;
+        }
+    }
+
+    if (asignaturaParaModificar != null)
+    {
+        estudianteParaModificar.ModificarCalificacion(asignaturaParaModificar, nuevaCalificacion);
+    }
+    else
+    {
+        Console.WriteLine($"El estudiante {nombreEstudiante} no tiene calificación registrada para la asignatura {nombreAsignatura}.");
+    }
+}
+else
+{
+    Console.WriteLine($"Estudiante {nombreEstudiante} no encontrado.");
+}

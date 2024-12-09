@@ -40,12 +40,18 @@ class Estudiante
         if (calificaciones.ContainsKey(asignatura))
         {
             calificaciones[asignatura] = nuevaCalificacion;
-            Console.WriteLine($"Calificación de {asignatura.Nombre} modificada a {nuevaCalificacion:F2}.");
+            Console.WriteLine($"Calificación de {Nombre} en {asignatura.Nombre} modificada a {nuevaCalificacion:F2}.");
         }
         else
         {
-            Console.WriteLine($"El estudiante no tiene una calificación en {asignatura.Nombre}.");
+            Console.WriteLine($"El estudiante {Nombre} no tiene una calificación en {asignatura.Nombre}.");
         }
+    }
+
+
+    public Dictionary<Asignatura, double> GetCalificaciones()
+    {
+        return calificaciones;
     }
 
 }
