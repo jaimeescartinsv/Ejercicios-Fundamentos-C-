@@ -146,6 +146,9 @@ else
 // Mostrar lista actualizada de estudiantes
 programa.MostrarEstudiantes();
 
+// Mostrar ranking de estudiantes
+programa.MostrarRankingEstudiantes();
+
 // Calcular el promedio global del programa educativo
 Console.WriteLine("\n--- Calcular Promedio Global ---");
 double promedioGlobal = programa.CalcularPromedioGlobal();

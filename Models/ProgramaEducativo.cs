@@ -125,4 +125,30 @@ class ProgramaEducativo
         }
     }
 
+    public void MostrarRankingEstudiantes()
+    {
+        // Ordenar los estudiantes por promedio en orden descendente
+        var ranking = estudiantes
+            .Where(e => e.CalcularPromedio() > 0) // Solo considerar estudiantes con calificaciones
+            .OrderByDescending(e => e.CalcularPromedio())
+            .ToList();
+
+        Console.WriteLine("\n--- Ranking de Estudiantes por Promedio ---");
+
+        if (ranking.Count > 0)
+        {
+            int posicion = 1;
+            foreach (var estudiante in ranking)
+            {
+                double promedio = estudiante.CalcularPromedio();
+                Console.WriteLine($"{posicion}. {estudiante.Nombre} - Promedio: {promedio:F2}");
+                posicion++;
+            }
+        }
+        else
+        {
+            Console.WriteLine("No hay estudiantes con calificaciones registradas.");
+        }
+    }
+
 }
