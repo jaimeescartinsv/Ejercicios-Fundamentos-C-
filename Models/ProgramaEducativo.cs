@@ -4,7 +4,7 @@ namespace Models;
 class ProgramaEducativo
 {
     private List<Estudiante> estudiantes;
-    
+
 
     public ProgramaEducativo()
     {
@@ -14,15 +14,15 @@ class ProgramaEducativo
     public void AñadirEstudiante(Estudiante estudiante)
     {
         if (estudiantes.Exists(e => e.Nombre == estudiante.Nombre))
-            {
-                Console.WriteLine($"El estudiante {estudiante.Nombre} ya existe en el programa.");
-            }
-            else
-            {
-                // Añadir la asignatura a la lista global
-                estudiantes.Add(estudiante);
-                Console.WriteLine($"El estudiante {estudiante.Nombre} con ha sido añadido.");
-            }
+        {
+            Console.WriteLine($"El estudiante {estudiante.Nombre} ya existe en el programa.");
+        }
+        else
+        {
+            // Añadir la asignatura a la lista global
+            estudiantes.Add(estudiante);
+            Console.WriteLine($"El estudiante {estudiante.Nombre} con ha sido añadido.");
+        }
     }
 
     public void MostrarEstudiantes()
@@ -58,11 +58,11 @@ class ProgramaEducativo
         if (estudiante != null)
         {
             estudiantes.Remove(estudiante);
-            Console.WriteLine($"El estudiante {nombre} ha sido eliminado.");
+            Console.WriteLine($"Estudiante {nombre} ha sido eliminado del programa educativo.");
         }
         else
         {
-            Console.WriteLine($"El estudiante {nombre} no fue encontrado.");
+            Console.WriteLine($"No se encontró un estudiante con el nombre: {nombre}.");
         }
     }
 

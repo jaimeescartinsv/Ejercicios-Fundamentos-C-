@@ -78,3 +78,20 @@ else
 {
     Console.WriteLine($"Estudiante {nombreEstudiante} no encontrado.");
 }
+
+// Eliminar un estudiante por nombre
+Console.WriteLine("\n--- Eliminar Estudiante ---");
+string nombreEliminar = "Alejandro Giménez";
+
+Estudiante estudianteAEliminar = programa.ObtenerEstudiante(nombreEliminar);
+if (estudianteAEliminar != null)
+{
+    programa.EliminarEstudiante(nombreEliminar);
+}
+else
+{
+    Console.WriteLine($"El estudiante {nombreEliminar} no se encuentra en el sistema.");
+}
+
+// Mostrar lista actualizada de estudiantes
+programa.MostrarEstudiantes();
