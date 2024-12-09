@@ -112,6 +112,20 @@ else
     Console.WriteLine($"No se encontraron estudiantes que coincidan con '{parteDelNombre}'.");
 }
 
+// Generar un reporte detallado para un estudiante
+Console.WriteLine("\n--- Generar Reporte de Estudiante ---");
+string nombreReporte = "Vanessa Llorente";
+
+Estudiante estudianteReporte = programa.ObtenerEstudiante(nombreReporte);
+if (estudianteReporte != null)
+{
+    programa.GenerarReporteEstudiante(estudianteReporte);
+}
+else
+{
+    Console.WriteLine($"No se encontró un estudiante con el nombre: {nombreReporte}");
+}
+
 // Mostrar lista actualizada de estudiantes
 programa.MostrarEstudiantes();
 

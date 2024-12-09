@@ -83,10 +83,22 @@ class ProgramaEducativo
 
     public void GenerarReporteEstudiante(Estudiante estudiante)
     {
-        Console.WriteLine($"\n--- Reporte para {estudiante.Nombre} ---");
+        Console.WriteLine($"\n--- Reporte Detallado para {estudiante.Nombre} ---");
+
+        // Mostrar todas las calificaciones
+        Console.WriteLine("\nCalificaciones:");
         estudiante.MostrarCalificaciones();
+
+        // Calcular y mostrar el promedio
         double promedio = estudiante.CalcularPromedio();
-        Console.WriteLine($"Promedio final: {promedio:F2}");
+        Console.WriteLine($"\nPromedio final: {promedio:F2}");
+
+        // Mostrar todas las asignaturas inscritas
+        Console.WriteLine("\nAsignaturas inscritas:");
+        foreach (var asignatura in estudiante.GetCalificaciones().Keys)
+        {
+            Console.WriteLine($"- {asignatura.Nombre} ({asignatura.Creditos} créditos)");
+        }
     }
 
 }
