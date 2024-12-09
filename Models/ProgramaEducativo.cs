@@ -119,11 +119,23 @@ class ProgramaEducativo
     public void MostrarAsignaturas()
     {
         Console.WriteLine("\n--- Lista de Asignaturas ---");
-        foreach (var asignatura in asignaturas)
+
+        if (asignaturas.Count > 0)
         {
-            Console.WriteLine($"- {asignatura.Nombre} ({asignatura.Creditos} créditos)");
+            Console.WriteLine($"{"Nombre",-20} {"Créditos",-10}");
+            Console.WriteLine(new string('-', 30));
+
+            foreach (var asignatura in asignaturas)
+            {
+                Console.WriteLine($"{asignatura.Nombre,-20} {asignatura.Creditos,-10}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("No hay asignaturas registradas en el programa educativo.");
         }
     }
+
 
     public void MostrarEstudiantesEnRiesgo()
     {
