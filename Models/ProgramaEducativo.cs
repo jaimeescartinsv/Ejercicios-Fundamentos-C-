@@ -125,6 +125,28 @@ class ProgramaEducativo
         }
     }
 
+    public void MostrarEstudiantesEnRiesgo()
+    {
+        // Filtrar estudiantes con promedio menor a 5
+        var estudiantesEnRiesgo = estudiantes
+            .Where(e => e.CalcularPromedio() > 0 && e.CalcularPromedio() < 5)
+            .ToList();
+
+        Console.WriteLine("\n--- Estudiantes en Riesgo de suspender ---");
+
+        if (estudiantesEnRiesgo.Count > 0)
+        {
+            foreach (var estudiante in estudiantesEnRiesgo)
+            {
+                Console.WriteLine($"- {estudiante.Nombre}: Promedio {estudiante.CalcularPromedio():F2}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("No hay estudiantes en riesgo de suspender.");
+        }
+    }
+
     public void MostrarRankingEstudiantes()
     {
         // Ordenar los estudiantes por promedio en orden descendente

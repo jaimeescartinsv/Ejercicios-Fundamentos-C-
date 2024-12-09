@@ -146,6 +146,9 @@ else
 // Mostrar lista actualizada de estudiantes
 programa.MostrarEstudiantes();
 
+// Mostrar estudiantes en riesgo de reprobar
+programa.MostrarEstudiantesEnRiesgo();
+
 // Mostrar ranking de estudiantes
 programa.MostrarRankingEstudiantes();
 
