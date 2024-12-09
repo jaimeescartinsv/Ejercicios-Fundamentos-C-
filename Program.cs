@@ -114,3 +114,16 @@ else
 
 // Mostrar lista actualizada de estudiantes
 programa.MostrarEstudiantes();
+
+// Calcular el promedio global del programa educativo
+Console.WriteLine("\n--- Calcular Promedio Global ---");
+double promedioGlobal = programa.CalcularPromedioGlobal();
+
+if (promedioGlobal > 0)
+{
+    Console.WriteLine($"El promedio global del programa educativo es: {promedioGlobal:F2}");
+}
+else
+{
+    Console.WriteLine("No hay estudiantes registrados o no tienen calificaciones.");
+}
